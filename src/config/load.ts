@@ -43,7 +43,8 @@ function validateConfig(raw: any): TSPublishConfig {
 
   if (
     !Array.isArray(config.formats) ||
-    config.formats.some(f => f !== "esm" && f !== "cjs")
+    config.formats.some((f: string) => f !== "esm" && f !== "cjs")
+
   ) {
     throw new TSPublishError(
       "TP006",

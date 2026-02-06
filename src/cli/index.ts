@@ -3,7 +3,7 @@ import { initConfig } from "../config/init.js";
 import { loadConfig } from "../config/load.js";
 import { TSPublishError } from "../errors/error.js";
 
-export function runCLI(args: string[]) {
+export async function runCLI(args: string[]) {
   const command = args[0];
 
   try {
@@ -13,10 +13,12 @@ export function runCLI(args: string[]) {
         console.log(chalk.green("ts-publish.config.json created"));
         break;
 
-      case "build":
+      case "build": {
         const config = loadConfig();
-        console.log(chalk.blue("Config loaded:"), config);
+        await import("../build/build.js").then((m) => m.buildPackage(config));
+        console.log(chalk.green("Build completed successfully"));
         break;
+      }
 
       case "verify":
         loadConfig();

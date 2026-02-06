@@ -1,10 +1,10 @@
 {
-  "name": "ts-publish",
-  "version": "0.0.1",
+  "name": "ts-publish-helper",
+  "version": "3.0.4",
   "description": "Deterministic TypeScript publishing for ESM, CJS, and types",
   "type": "module",
   "bin": {
-    "ts-publish": "./dist/bin/ts-publish.js"
+    "ts-publish": "dist/bin/ts-publish.js"
   },
   "engines": {
     "node": ">=18"

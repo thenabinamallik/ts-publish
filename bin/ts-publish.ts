@@ -5,4 +5,5 @@ import { runCLI } from "../src/cli/index.js";
 
 assertSupportedNode();
 
-runCLI(process.argv.slice(2));
+await runCLI(process.argv.slice(2));
+
